@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import SearchableDropDown from './components/dropdown/SearchableDropdown';
 
-function App() {
+const list = [
+  {'id': 1, 'data': 'Python'},
+  {'id': 2, 'data': 'JS'},
+  {'id': 3, 'data': 'C++'},
+  {'id': 4, 'data': 'CSS'},
+  {'id': 5, 'data': 'RoR'},
+]
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchableDropDown list={list} />
     </div>
-  );
+  )
 }
 
 export default App;
