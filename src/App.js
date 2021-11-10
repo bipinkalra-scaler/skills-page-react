@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import SearchableDropDown from './components/dropdown/SearchableDropdown';
+import SearchableDropDown from './components/dropdown/SearchableDropDown';
+import { Container } from 'semantic-ui-react';
+import SkillsView from './views/SkillsView';
 
-const list = [
-  {'id': 1, 'data': 'Python'},
-  {'id': 2, 'data': 'JS'},
-  {'id': 3, 'data': 'C++'},
-  {'id': 4, 'data': 'CSS'},
-  {'id': 5, 'data': 'RoR'},
-]
+// Create global state
 
 const App = () => {
+
   return (
-    <div className="App">
-      <SearchableDropDown list={list} />
-    </div>
+    <>
+      {/* <SearchableDropDown
+        list={list}
+        handleOnChange = {value => console.log(value)}
+        value={value}
+        setValue={setValue}
+        toggle={toggle}
+        setToggle={setToggle}
+      /> */}
+
+    <Container>
+      <h1>Add Skills to your profile</h1>
+      <SkillsView />
+    </Container>
+
+    {/* Skill section which uses the global state */}
+    </>
   )
 }
 
