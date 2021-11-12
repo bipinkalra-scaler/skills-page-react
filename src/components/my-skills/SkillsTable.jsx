@@ -9,7 +9,6 @@ import { listSkills } from "../../store/getters/skills";
 const SkillsTable = () => {
 
   const skillsList = useSelector(listSkills());
-  console.log(skillsList)
 
   const dispatch = useDispatch();
   
