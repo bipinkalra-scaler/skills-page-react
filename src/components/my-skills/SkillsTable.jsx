@@ -27,6 +27,7 @@ const SkillsTable = () => {
     >
       <Table.Cell>{skill.id}</Table.Cell>
       <Table.Cell>{skill.name}</Table.Cell>
+      <Table.Cell>{skill.level}</Table.Cell>
     </Table.Row>
   ));
 
@@ -37,6 +38,7 @@ const SkillsTable = () => {
           <Table.Row>
             <Table.HeaderCell>Id</Table.HeaderCell>
             <Table.HeaderCell>Skill</Table.HeaderCell>
+            <Table.HeaderCell>Level</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>{rows}</Table.Body>

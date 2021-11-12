@@ -6,32 +6,35 @@ import SearchableDropDown from "../dropdown/SearchableDropDown";
 import { skillsList } from "../../constants/skills";
 
 const SkillsForm = () => {
-  // let name = useFormInput("");
-  // let name = null;
+
   const [name, setName] = useState()
+  const level = useFormInput("");
 
   const [state, dispatch] = useContext(SkillsContext);
 
   const onSubmit = () => {
     dispatch({
       type: "ADD_SKILL",
-      payload: { id: _.uniqueId(10), name: name }
+      payload: { id: _.uniqueId(10), name: name, level: level.entry }
     });
 
-    // name.onReset();
+    level.onReset();
   };
 
   return (
     <Segment basic>
       <Form onSubmit={onSubmit}>
-        <Form.Group widths="2" style={{alignItems: 'center'}}>
-          <Form.Field width={12}>
+        <Form.Group widths="3" style={{alignItems: 'center'}}>
+          <Form.Field width={6}>
             {/* <Input placeholder="Enter Name" {...name} required /> */}
             <SearchableDropDown
               list={skillsList}
               // handleOnChange = {value => name = value}
               handleOnChange = {value => setName(value)}
             />
+          </Form.Field>
+          <Form.Field width={6}>
+            <Input placeholder="Enter Level" {...level} required />
           </Form.Field>
           <Form.Field width={4}>
             <Button fluid primary>
@@ -44,22 +47,22 @@ const SkillsForm = () => {
   )
 }
 
-// const useFormInput = (initialValue) => {
-//   const [value, setValue] = useState(initialValue);
+const useFormInput = (initialEntry) => {
+  const [entry, setEntry] = useState(initialEntry);
 
-//   const handleChange = e => {
-//     setValue(e.target.value);
-//   };
+  const handleChange = e => {
+    setEntry(e.target.value);
+  };
 
-//   const handleReset = () => {
-//     setValue("");
-//   };
+  const handleReset = () => {
+    setEntry("");
+  };
 
-//   return {
-//     value,
-//     onChange: handleChange,
-//     onReset: handleReset
-//   };
-// }
+  return {
+    entry,
+    onChange: handleChange,
+    onReset: handleReset
+  };
+}
 
 export default SkillsForm;

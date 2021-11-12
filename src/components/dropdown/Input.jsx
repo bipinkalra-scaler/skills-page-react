@@ -19,7 +19,8 @@ const StyledInput = styled.input`
 
 const Input = ({onChange, value, style}) => {
   return (
-    <StyledInput 
+    <StyledInput
+      placeholder="Start typing to select skill"
       onChange = {(e) => onChange(e.target.value)}
       value = {value}
     />
