@@ -1,0 +1,1 @@
+export const listSkills = () => (state) => state.skills;

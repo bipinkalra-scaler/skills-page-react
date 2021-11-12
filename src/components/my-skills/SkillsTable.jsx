@@ -1,25 +1,38 @@
-import React, { useState, useContext } from "react";
+// import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Segment, Table, Button, Icon } from 'semantic-ui-react';
-import { SkillsContext } from "../../context/SkillsContext";
+// import { SkillsContext } from "../../context/SkillsContext";
+import { useDispatch, useSelector } from "react-redux";
+import { delSkill } from "../../store/actions/skills";
+import { listSkills } from "../../store/getters/skills";
 
 const SkillsTable = () => {
+
+  const skillsList = useSelector(listSkills());
+  console.log(skillsList)
+
+  const dispatch = useDispatch();
   
-  const [state, dispatch] = useContext(SkillsContext);
+  // const [state, dispatch] = useContext(SkillsContext);
   const [selectedId, setSelectedId] = useState();
 
-  const delSkill = id => {
-    dispatch({
-      type: "DEL_SKILL",
-      payload: id
-    });
-  };
+  // const deleteSkill = id => {
+  //   dispatch({
+  //     type: "DEL_SKILL",
+  //     payload: id
+  //   });
+  // };
+
+  const deleteSkill = id => {
+    dispatch(delSkill(id));
+  }
 
   const onRemoveSkill = () => {
-    delSkill(selectedId);
+    deleteSkill(selectedId);
     setSelectedId(null);
   }
 
-  const rows = state.skills.map(skill => (
+  const rows = skillsList.skills.map(skill => (
     <Table.Row
       key={skill.id}
       onClick={() => setSelectedId(skill.id)}

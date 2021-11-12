@@ -1,22 +1,24 @@
-import React, { useState, useContext } from "react";
+// import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Segment, Form, Input, Button } from 'semantic-ui-react';
 import _ from 'lodash';
-import { SkillsContext } from "../../context/SkillsContext";
+// import { SkillsContext } from "../../context/SkillsContext";
 import SearchableDropDown from "../dropdown/SearchableDropDown";
 import { skillsList } from "../../constants/skills";
+import { addSkill } from "../../store/actions/skills";
+import { useDispatch } from "react-redux";
 
 const SkillsForm = () => {
+
+  const dispatch = useDispatch();
 
   const [name, setName] = useState()
   const level = useFormInput("");
 
-  const [state, dispatch] = useContext(SkillsContext);
+  // const [state, dispatch] = useContext(SkillsContext);
 
   const onSubmit = () => {
-    dispatch({
-      type: "ADD_SKILL",
-      payload: { id: _.uniqueId(10), name: name, level: level.entry }
-    });
+    dispatch(addSkill({ id: _.uniqueId(10), name: name, level: level.entry }))
 
     level.onReset();
   };
