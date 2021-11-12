@@ -7,7 +7,8 @@ import { skillsList } from "../../constants/skills";
 
 const SkillsForm = () => {
   // let name = useFormInput("");
-  let name = null;
+  // let name = null;
+  const [name, setName] = useState()
 
   const [state, dispatch] = useContext(SkillsContext);
 
@@ -23,12 +24,13 @@ const SkillsForm = () => {
   return (
     <Segment basic>
       <Form onSubmit={onSubmit}>
-        <Form.Group widths="2">
+        <Form.Group widths="2" style={{alignItems: 'center'}}>
           <Form.Field width={12}>
             {/* <Input placeholder="Enter Name" {...name} required /> */}
             <SearchableDropDown
               list={skillsList}
-              handleOnChange = {value => name = value}
+              // handleOnChange = {value => name = value}
+              handleOnChange = {value => setName(value)}
             />
           </Form.Field>
           <Form.Field width={4}>

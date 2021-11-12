@@ -6,7 +6,8 @@ const initialState = {
   skills: [
     // {
     //   id: 10,
-    //   name: "Something"
+    //   name: "Something",
+    //   level: "Beginner"
     // },
     // {
     //   id: 11,

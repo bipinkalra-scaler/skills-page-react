@@ -9,8 +9,7 @@ const SearchableDropDown = ({list, handleOnChange}) => {
 
   return (
     <>
-      <h2 style={{marginTop: '0', color: 'white'}}>Select Skills - </h2>
-      <div style={{display: 'flex', flexDirection: 'column', padding: '1rem', alignItems: 'center', position: 'relative'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative'}}>
         <Input 
           onChange = {(inputValue) => {
             setValue(inputValue);
